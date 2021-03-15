@@ -48,6 +48,8 @@ if ($BuildNumber -eq '19042' -or $BuildNumber -eq '19041')
 
         Write-Output "$($_ | Select-Object -Property *)" > $LocalLogLocation
 
+        $Subject = "[Failure] <INSERT_PROPER_ACTOR> - March Update Removal"
+
         $Body = "SComputer $env:COMPUTERNAME attempted to remove an update but failed! The error message is attached.`n`n`n`I'm a bot and this message is automated. Replies will not be monitored. ;) glhf"
 
         # Send the email notification
@@ -56,7 +58,7 @@ if ($BuildNumber -eq '19042' -or $BuildNumber -eq '19041')
 }
 
 # If the build is 1909
-if ($BuildNumber -eq '18363')
+elseif ($BuildNumber -eq '18363')
 {
     try
     {
@@ -89,6 +91,8 @@ if ($BuildNumber -eq '18363')
     catch
     {
         Write-Output "$($_ | Select-Object -Property *)" > $LocalLogLocation
+
+        $Subject = "[Failure] <INSERT_PROPER_ACTOR> - March Update Removal"
 
         $Body = "SCCM client on $env:COMPUTERNAME removed attempted to remove an update but failed! The error message is attached.`n`n`n`I'm a bot and this message is automated. Replies will not be monitored. ;) glhf"
 
